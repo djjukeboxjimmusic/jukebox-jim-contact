@@ -1,0 +1,108 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    text-align: center;
+}
+
+/* HEADER */
+header {
+    padding: 40px 20px;
+    background: linear-gradient(180deg, #111, #0a0a0a);
+}
+
+.logo {
+    width: 200px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 12px #0ff);
+}
+
+/* TITLES */
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: #0ff;
+    text-shadow: 0 0 12px #0ff;
+}
+
+h2 {
+    font-size: 22px;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+/* NEON BUTTONS */
+.button {
+    display: inline-block;
+    margin: 12px;
+    padding: 14px 32px;
+    background: #0ff;
+    color: #111;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 0 14px #0ff;
+    transition: 0.25s;
+}
+
+.button:hover {
+    background: #ff00ff;
+    box-shadow: 0 0 14px #ff00ff;
+    color: #fff;
+}
+
+/* ABOUT SECTION */
+.about {
+    padding: 30px 20px;
+    max-width: 750px;
+    margin: auto;
+}
+
+/* SLICK NEON MENU */
+nav {
+    background: #111;
+    padding: 12px 0;
+    box-shadow: 0 0 12px #0ff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: #0ff;
+    text-decoration: none;
+    margin: 0 18px;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 8px #0ff;
+    transition: 0.25s;
+}
+
+nav a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+/* MOBILE MENU */
+@media (max-width: 700px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+    }
+
+    nav a {
+        margin: 10px 0;
+        font-size: 22px;
+    }
+}
+
+/* FOOTER */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 14px;
+    color: #888;
+}
