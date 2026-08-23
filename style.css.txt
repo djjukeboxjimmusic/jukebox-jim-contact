@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background: #111;
+    color: #fff;
+    text-align: center;
+}
+
+header {
+    padding: 40px 20px;
+}
+
+.logo {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff;
+}
+
+h2 {
+    font-size: 20px;
+    color: #ff00ff;
+    text-shadow: 0 0 8px #ff00ff;
+}
+
+.button {
+    display: inline-block;
+    margin: 10px;
+    padding: 14px 28px;
+    background: #0ff;
+    color: #111;
+    font-weight: bold;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 0 12px #0ff;
+}
+
+.button:hover {
+    background: #ff00ff;
+    box-shadow: 0 0 12px #ff00ff;
+}
+
+.about {
+    padding: 30px 20px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.nav a {
+    display: block;
+    margin: 10px;
+    color: #0ff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 14px;
+    color: #888;
+}
