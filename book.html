@@ -7,21 +7,56 @@
 </head>
 
 <body>
-    <header>
-        <h1>Book an Event</h1>
-    </header>
 
-    <section class="about">
-        <p>Ready to bring unforgettable entertainment to your event?</p>
+<header>
+    <h1>Book an Event</h1>
+</header>
 
-        <p><strong>Phone:</strong> 856-912-4411</p>
-        <p><strong>Email:</strong> DJ.Jukebox.Jim.Music@gmail.com</p>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="events.html">Event Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="book.html">Booking</a>
+    <a href="contact.vcf">Download Contact</a>
+</nav>
 
-        <a class="button" href="contact.vcf">Download Contact Card</a>
-    </section>
+<section class="about">
+    <h3>Ready to bring unforgettable entertainment to your event?</h3>
+    <p>Fill out the form below and I’ll get back to you quickly.</p>
 
-    <footer>
-        <p>© 2026 Jukebox Jim Hayes</p>
-    </footer>
+    <form action="https://formsubmit.co/DJ.Jukebox.Jim.Music@gmail.com" method="POST">
+
+        <!-- Protect from spam -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Redirect after submission -->
+        <input type="hidden" name="_next" value="https://jukebox-jim-contact.github.io/jukebox-jim-contact/thankyou.html">
+
+        <label>Your Name</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Your Email</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Your Phone Number</label><br>
+        <input type="text" name="phone" required><br><br>
+
+        <label>Event Type</label><br>
+        <input type="text" name="event_type" placeholder="Wedding, Lodge Event, Music Bingo, etc." required><br><br>
+
+        <label>Event Date</label><br>
+        <input type="date" name="event_date" required><br><br>
+
+        <label>Message</label><br>
+        <textarea name="message" rows="5" required></textarea><br><br>
+
+        <button class="button" type="submit">Send Booking Request</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Jukebox Jim Hayes</p>
+</footer>
+
 </body>
 </html>
