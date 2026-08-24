@@ -1,32 +1,309 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Event Services - Jukebox Jim</title>
+    <title>Event Services – Jukebox Jim Entertainment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Category Header */
+        .category-header {
+            text-align: center;
+            margin: 50px 0 20px;
+        }
+
+        .category-header-icon {
+            font-size: 60px;
+            color: #0ff;
+            text-shadow: 0 0 14px #0ff;
+            margin-bottom: 10px;
+        }
+
+        .category-header h2 {
+            font-size: 32px;
+            color: #0ff;
+            text-shadow: 0 0 12px #0ff;
+            margin: 0;
+        }
+
+        /* Service Cards */
+        .service-grid {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-gap: 25px;
+        }
+
+        .service-card {
+            background: #111;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 12px #0ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .service-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 16px #ff00ff;
+        }
+
+        .service-icon {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #0ff;
+            text-shadow: 0 0 12px #0ff;
+        }
+
+        .service-card h3 {
+            color: #0ff;
+            text-shadow: 0 0 10px #0ff;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .service-card p {
+            color: #ddd;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #0ff;
+            padding: 14px;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .comparison-table th {
+            background: #111;
+            color: #0ff;
+            text-shadow: 0 0 8px #0ff;
+            font-size: 18px;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #0a0a0a;
+        }
+
+        .comparison-table tr:nth-child(odd) {
+            background: #111;
+        }
+
+        .comparison-table td {
+            color: #ddd;
+        }
+
+        .cta {
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <h1>Event Services</h1>
-    </header>
 
-    <section class="about">
-        <h3>DJ & Music Entertainment</h3>
-        <p>Professional DJ services for weddings, lodge events, parties, and celebrations.</p>
+<header>
+    <h1>Event Services</h1>
+    <h2>Professional DJ, Music Games & Interactive Entertainment</h2>
+</header>
 
-        <h3>Name That Tune</h3>
-        <p>High-energy, interactive music trivia that gets everyone involved.</p>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="events.html">Event Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="book.html">Booking</a>
+    <a href="contact.vcf">Download Contact</a>
+</nav>
 
-        <h3>Music Bingo</h3>
-        <p>A crowd favorite — fun, fast-paced, and perfect for bars and community events.</p>
+<section class="about">
 
-        <h3>Bar Trivia</h3>
-        <p>Custom trivia rounds tailored to your venue and audience.</p>
-    </section>
+    <!-- CATEGORY HEADER -->
+    <div class="category-header">
+        <div class="category-header-icon">✨</div>
+        <h2>Entertainment Designed for Every Crowd</h2>
+    </div>
 
-    <footer>
-        <p>© 2026 Jukebox Jim Hayes</p>
-    </footer>
+    <p style="line-height:1.6; font-size:18px; margin-bottom:35px; text-align:center;">
+        From weddings and lodge events to high‑energy music games, I bring professional sound,
+        engaging hosting, and a fun, welcoming atmosphere to every event. Explore the services
+        below and compare them to find the perfect fit for your celebration or venue.
+    </p>
+
+    <!-- CATEGORY HEADER: DJ SERVICES -->
+    <div class="category-header">
+        <div class="category-header-icon">🎧</div>
+        <h2>DJ Services</h2>
+    </div>
+
+    <div class="service-grid">
+        <div class="service-card">
+            <div class="service-icon">🎧</div>
+            <h3>DJ & Music Entertainment</h3>
+            <p>
+                Full‑service DJ entertainment for weddings, lodge events, private parties,
+                corporate gatherings, and community celebrations. Professional sound, curated playlists,
+                seamless transitions, and an engaging host who keeps the energy right where you want it.
+            </p>
+        </div>
+    </div>
+
+    <!-- CATEGORY HEADER: MUSIC GAMES -->
+    <div class="category-header">
+        <div class="category-header-icon">🎵</div>
+        <h2>Music Games</h2>
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service-card">
+            <div class="service-icon">🎵</div>
+            <h3>Name That Tune</h3>
+            <p>
+                A fast‑paced, interactive music challenge where players guess songs from short clips.
+                Perfect for bars, lodges, parties, and fundraisers. High energy, tons of laughs,
+                and guaranteed crowd participation.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🎶</div>
+            <h3>Music Bingo</h3>
+            <p>
+                A crowd favorite! Instead of numbers, players mark off song titles as they hear them.
+                Fun, social, and ideal for weekly bar events, lodge nights, or large community gatherings.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- CATEGORY HEADER: TRIVIA -->
+    <div class="category-header">
+        <div class="category-header-icon">❓</div>
+        <h2>Trivia & Quizzo</h2>
+    </div>
+
+    <div class="service-grid">
+        <div class="service-card">
+            <div class="service-icon">❓</div>
+            <h3>Trivia / Quizzo</h3>
+            <p>
+                Custom trivia rounds tailored to your venue, audience, or theme. Great for bars,
+                restaurants, lodges, and private events. Includes general knowledge, themed rounds,
+                audio clues, and more.
+            </p>
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <h2 style="color:#ff00ff; text-shadow:0 0 10px #ff00ff; margin-top:50px; text-align:center;">
+        Service Comparison Chart
+    </h2>
+
+    <table class="comparison-table">
+        <tr>
+            <th>Feature / Service</th>
+            <th>DJ Entertainment</th>
+            <th>Music Bingo</th>
+            <th>Name That Tune</th>
+            <th>Trivia / Quizzo</th>
+        </tr>
+
+        <tr>
+            <td>Ideal For</td>
+            <td>Weddings, Lodges, Parties</td>
+            <td>Bars, Lodges, Community Events</td>
+            <td>Parties, Fundraisers, Bars</td>
+            <td>Bars, Restaurants, Lodges</td>
+        </tr>
+
+        <tr>
+            <td>Audience Size</td>
+            <td>Small–Large</td>
+            <td>Medium–Large</td>
+            <td>Small–Large</td>
+            <td>Small–Large</td>
+        </tr>
+
+        <tr>
+            <td>Energy Level</td>
+            <td>Customizable</td>
+            <td>Social & Fun</td>
+            <td>Fast‑Paced & Loud</td>
+            <td>Moderate–High</td>
+        </tr>
+
+        <tr>
+            <td>Equipment Provided</td>
+            <td>Full DJ Setup, Speakers, Mics</td>
+            <td>Bingo Cards, Audio System</td>
+            <td>Audio Clips System, Host</td>
+            <td>Trivia System, Host, Materials</td>
+        </tr>
+
+        <tr>
+            <td>Customization</td>
+            <td>Playlists, Themes, Announcements</td>
+            <td>Themed Bingo Cards</td>
+            <td>Themed Rounds, Custom Categories</td>
+            <td>Custom Categories, Audio/Visual Rounds</td>
+        </tr>
+
+        <tr>
+            <td>Interaction Level</td>
+            <td>Medium–High</td>
+            <td>High</td>
+            <td>Very High</td>
+            <td>High</td>
+        </tr>
+
+        <tr>
+            <td>Typical Duration</td>
+            <td>3–5 Hours</td>
+            <td>2 Hours</td>
+            <td>2 Hours</td>
+            <td>2 Hours</td>
+        </tr>
+
+        <tr>
+            <td>Booking Frequency</td>
+            <td>Weddings, Lodges, Corporate</td>
+            <td>Weekly Bar Nights, Lodges</td>
+            <td>Monthly / Special Events</td>
+            <td>Weekly Bar Nights, Lodges</td>
+        </tr>
+
+        <tr>
+            <td>Pricing Range</td>
+            <td>$$$</td>
+            <td>$$</td>
+            <td>$$</td>
+            <td>$$</td>
+        </tr>
+    </table>
+
+    <!-- CALL TO ACTION -->
+    <div class="cta">
+        <a class="button" href="book.html">Book Your Event</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Jukebox Jim Hayes – DJ & Event Entertainment</p>
+</footer>
+
 </body>
 </html>
