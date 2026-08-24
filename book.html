@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Book an Event - Jukebox Jim</title>
+    <title>Book an Event – Jukebox Jim Entertainment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -10,6 +11,7 @@
 
 <header>
     <h1>Book an Event</h1>
+    <h2>Your Entertainment, Elevated</h2>
 </header>
 
 <nav>
@@ -21,41 +23,75 @@
 </nav>
 
 <section class="about">
-    <h3>Ready to bring unforgettable entertainment to your event?</h3>
-    <p>Fill out the form below and I’ll get back to you quickly.</p>
+    <h2 style="color:#0ff; text-shadow:0 0 10px #0ff; margin-bottom:10px;">
+        Let's Make Your Event Unforgettable
+    </h2>
 
-    <form action="https://formsubmit.co/DJ.Jukebox.Jim.Music@gmail.com" method="POST">
+    <p style="line-height:1.6; font-size:18px; margin-bottom:25px;">
+        Whether you're planning a wedding, lodge event, music bingo night, or a full‑scale celebration,
+        this form helps me gather the details I need to tailor the perfect entertainment experience.
+        Please complete each field so I can respond quickly with availability, pricing, and next steps.
+    </p>
+
+    <form action="https://formsubmit.co/DJ.Jukebox.Jim.Music@gmail.com" method="POST" style="text-align:left; margin:auto; max-width:600px;">
 
         <!-- Protect from spam -->
         <input type="hidden" name="_captcha" value="false">
 
         <!-- Redirect after submission -->
-        <input type="hidden" name="_next" value="https://djjukeboxjimmusic.github.io/jukebox-jim-contact/thankyou.html">
+        <input type="hidden" name="_next" value="https://jukebox-jim-contact.github.io/jukebox-jim-contact/thankyou.html">
 
-        <label>Your Name</label><br>
-        <input type="text" name="name" required><br><br>
+        <!-- FORM FIELDS -->
+        <label for="name">Your Name</label><br>
+        <input id="name" type="text" name="name" required placeholder="First and Last Name" style="width:100%; padding:10px; margin-top:6px;"><br><br>
 
-        <label>Your Email</label><br>
-        <input type="email" name="email" required><br><br>
+        <label for="email">Your Email</label><br>
+        <input id="email" type="email" name="email" required placeholder="you@example.com" style="width:100%; padding:10px; margin-top:6px;"><br><br>
 
-        <label>Your Phone Number</label><br>
-        <input type="text" name="phone" required><br><br>
+        <label for="phone">Your Phone Number</label><br>
+        <input id="phone" type="text" name="phone" required placeholder="(123) 456‑7890" style="width:100%; padding:10px; margin-top:6px;"><br><br>
 
-        <label>Event Type</label><br>
-        <input type="text" name="event_type" placeholder="Wedding, Lodge Event, Music Bingo, etc." required><br><br>
+		<label for="event_type">Event Type</label><br>
+		<select id="event_type" name="event_type" required style="width:100%; padding:10px; margin-top:6px;">
+			<option value="" disabled selected>Select an option</option>
+			<option>DJ - Party</option>
+			<option>DJ - Wedding</option>
+			<option>DJ - Other</option>
+			<option>Music Bingo</option>
+			<option>Name That Tune</option>
+			<option>Trivia / Quizzo</option>
+			<option>Other</option>
+		</select>
+		<br><br>
 
-        <label>Event Date</label><br>
-        <input type="date" name="event_date" required><br><br>
+        <label for="event_date">Event Date</label><br>
+        <input id="event_date" type="date" name="event_date" required style="width:100%; padding:10px; margin-top:6px;"><br><br>
+		
+		<label for="venue_type">Venue Type</label><br>
+		<select id="venue_type" name="venue_type" required style="width:100%; padding:10px; margin-top:6px;">
+			<option value="" disabled selected>Select a venue type</option>
+			<option>Lodge / Fraternal Organization</option>
+			<option>Wedding Hall / Banquet Hall</option>
+			<option>Restaurant / Bar</option>
+			<option>Outdoor Venue</option>
+			<option>Private Residence</option>
+			<option>School / Community Center</option>
+			<option>Corporate / Conference Space</option>
+			<option>Other</option>
+		</select>
+		<br><br>
 
-        <label>Message</label><br>
-        <textarea name="message" rows="5" required></textarea><br><br>
+        <label for="message">Additional Details</label><br>
+        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your event, venue, expected guests, special requests, etc." style="width:100%; padding:10px; margin-top:6px;"></textarea><br><br>
 
-        <button class="button" type="submit">Send Booking Request</button>
+        <button class="button" type="submit" style="width:100%; margin-top:10px;">
+            Send Booking Request
+        </button>
     </form>
 </section>
 
 <footer>
-    <p>© 2026 Jukebox Jim Hayes</p>
+    <p>© 2026 Jukebox Jim Hayes – Professional DJ & Event Entertainment</p>
 </footer>
 
 </body>
