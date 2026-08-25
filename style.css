@@ -153,6 +153,9 @@ nav a.active {
         width: 100%;
         margin-bottom: 20px;
     }
+	
+	.category-header-icon { font-size: 40px; }
+    .comparison-table th, .comparison-table td { font-size: 14px; padding: 10px; }
 }
 
 

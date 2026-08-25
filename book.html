@@ -44,13 +44,21 @@
 
         <!-- FORM FIELDS -->
         <label for="name">Your Name</label><br>
-        <input id="name" type="text" name="name" required placeholder="First and Last Name" style="width:100%; padding:10px; margin-top:6px;"><br><br>
+        <input id="name" type="text" name="name" autocomplete="name" required placeholder="First and Last Name" style="width:100%; padding:10px; margin-top:6px;"><br><br>
 
         <label for="email">Your Email</label><br>
-        <input id="email" type="email" name="email" required placeholder="you@example.com" style="width:100%; padding:10px; margin-top:6px;"><br><br>
+        <input id="email" type="email" name="email" autocomplete="email" required placeholder="you@example.com" style="width:100%; padding:10px; margin-top:6px;"><br><br>
 
         <label for="phone">Your Phone Number</label><br>
-        <input id="phone" type="text" name="phone" required placeholder="(123) 456‑7890" style="width:100%; padding:10px; margin-top:6px;"><br><br>
+        <input id="phone" type="text" name="phone" autocomplete="phone" required placeholder="(123) 456‑7890" style="width:100%; padding:10px; margin-top:6px;"><br><br>
+		
+		<label for="contact_method">Preferred Contact Method</label><br>
+		<select id="contact_method" name="contact_method" required style="width:100%; padding:10px; margin-top:6px;">
+			<option>Email</option>
+			<option>Phone</option>
+			<option>Text Message</option>
+		</select>
+		<br><br>
 
 		<label for="event_type">Event Type</label><br>
 		<select id="event_type" name="event_type" required style="width:100%; padding:10px; margin-top:6px;">
@@ -84,6 +92,10 @@
 
         <label for="message">Additional Details</label><br>
         <textarea id="message" name="message" rows="5" required placeholder="Tell me about your event, venue, expected guests, special requests, etc." style="width:100%; padding:10px; margin-top:6px;"></textarea><br><br>
+		
+		<label for="referral">How did you hear about me?</label><br>
+		<input id="referral" type="text" name="referral" placeholder="Moose Lodge, Elks Lodge, Friend, Facebook, etc." style="width:100%; padding:10px; margin-top:6px;"><br><br>
+
 
         <button class="button" type="submit" style="width:100%; margin-top:10px;">
             Send Booking Request
