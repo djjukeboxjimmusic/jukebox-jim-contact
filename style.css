@@ -100,6 +100,42 @@ header img.logo-small {
     filter: drop-shadow(0 0 10px #0ff);
 }
 	
+/* HEADER BAR WITH LOGO + NAME */
+.brand-header {
+    padding: 30px 20px;
+    background: linear-gradient(180deg, #111, #0a0a0a);
+}
+
+.brand-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.brand-logo {
+    width: 120px;
+    filter: drop-shadow(0 0 10px #0ff);
+}
+
+.brand-text {
+    text-align: left;
+}
+
+.brand-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: #0ff;
+    text-shadow: 0 0 12px #0ff;
+}
+
+.brand-tagline {
+    font-size: 18px;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+	
 
 /* MOBILE MENU + MOBILE LAYOUT */
 @media (max-width: 700px) {
@@ -168,6 +204,16 @@ header img.logo-small {
 	
 	header img.logo-small {
         width: 90px !important;
+    }
+	
+	.brand-logo {
+        width: 80px;
+    }
+    .brand-title {
+        font-size: 32px;
+    }
+    .brand-tagline {
+        font-size: 16px;
     }
 }
 
