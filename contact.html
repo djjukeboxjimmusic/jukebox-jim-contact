@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Contact Jukebox Jim Hayes for DJ services, Music Bingo, Name That Tune, Trivia, and lodge or community events.">
+
+    <title>Contact – Jukebox Jim Entertainment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Contact</h1>
+    <h2>Get in Touch with Jukebox Jim</h2>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="events.html">Event Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="book.html">Booking</a>
+    <a href="contact.html" class="active">Contact</a>
+</nav>
+
+<section class="about">
+
+    <h2 style="color:#0ff; text-shadow:0 0 10px #0ff; margin-bottom:10px;">
+        Reach Out Anytime
+    </h2>
+
+    <p style="line-height:1.6; font-size:18px; margin-bottom:25px;">
+        I’m always happy to talk about upcoming events, bookings, or entertainment ideas.
+        Whether you're planning a wedding, lodge event, Music Bingo night, or community celebration,
+        feel free to contact me directly or use the form below.
+    </p>
+
+    <!-- CONTACT INFO -->
+    <div style="text-align:left; margin:auto; max-width:500px; font-size:18px; line-height:1.8;">
+
+        <p><strong>Name:</strong> Jukebox Jim Hayes</p>
+        <p><strong>Phone:</strong> <a href="tel:8569124411" style="color:#0ff;">856‑912‑4411</a></p>
+        <p><strong>Email:</strong> <a href="mailto:DJ.Jukebox.Jim.Music@gmail.com" style="color:#0ff;">DJ.Jukebox.Jim.Music@gmail.com</a></p>
+
+    </div>
+
+    <a class="button" href="jukebox_jim_contact.vcf" style="margin-top:25px;">
+        Download Contact Card (VCF)
+    </a>
+
+    <hr style="margin:40px auto; border:0; border-top:1px solid #333; width:80%;">
+
+    <!-- CONTACT FORM -->
+    <h2 style="color:#ff00ff; text-shadow:0 0 10px #ff00ff; margin-bottom:10px;">
+        Send a Message
+    </h2>
+
+    <form action="https://formsubmit.co/DJ.Jukebox.Jim.Music@gmail.com" method="POST" style="text-align:left; margin:auto; max-width:600px;">
+
+        <!-- Protect from spam -->
+        <input type="hidden" name="_captcha" value="false">
+
+        <!-- Redirect after submission -->
+        <input type="hidden" name="_next" value="https://djjukeboxjimmusic.github.io/jukebox-jim-contact/thankyou.html">
+
+        <label for="name">Your Name</label><br>
+        <input id="name" type="text" name="name" required placeholder="First and Last Name" style="width:100%; padding:10px; margin-top:6px;"><br><br>
+
+        <label for="email">Your Email</label><br>
+        <input id="email" type="email" name="email" required placeholder="you@example.com" style="width:100%; padding:10px; margin-top:6px;"><br><br>
+
+        <label for="phone">Your Phone Number</label><br>
+        <input id="phone" type="text" name="phone" required placeholder="(123) 456‑7890" style="width:100%; padding:10px; margin-top:6px;"><br><br>
+
+        <label for="message">Message</label><br>
+        <textarea id="message" name="message" rows="5" required placeholder="Tell me how I can help..." style="width:100%; padding:10px; margin-top:6px;"></textarea><br><br>
+
+        <button class="button" type="submit" style="width:100%; margin-top:10px;">
+            Send Message
+        </button>
+    </form>
+
+</section>
+
+<footer>
+    <p>© 2026 Jukebox Jim Hayes – DJ & Event Entertainment</p>
+</footer>
+
+</body>
+</html>

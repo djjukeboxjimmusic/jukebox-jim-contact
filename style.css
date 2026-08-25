@@ -85,8 +85,17 @@ nav a:hover {
     text-shadow: 0 0 10px #ff00ff;
 }
 
-/* MOBILE MENU */
+nav a.active {
+    color: #ff00ff;
+    text-shadow: 0 0 12px #ff00ff;
+    border-bottom: 2px solid #ff00ff;
+    padding-bottom: 4px;
+}
+
+/* MOBILE MENU + MOBILE LAYOUT */
 @media (max-width: 700px) {
+
+    /* Navigation */
     nav {
         display: flex;
         flex-direction: column;
@@ -97,7 +106,55 @@ nav a:hover {
         margin: 10px 0;
         font-size: 22px;
     }
+
+    /* Header Text */
+    header h1 {
+        font-size: 36px;
+    }
+
+    header h2 {
+        font-size: 18px;
+    }
+
+    /* Buttons */
+    .button {
+        width: 90%;
+        margin: 10px auto;
+        padding: 16px;
+        font-size: 18px;
+    }
+
+    /* About Section */
+    .about {
+        padding: 20px;
+        max-width: 95%;
+    }
+
+    /* Service Grid (Events Page) */
+    .service-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    /* Comparison Table */
+    .comparison-table th,
+    .comparison-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* Gallery Grid */
+    .gallery-container {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .gallery-container img {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
+
 
 /* FOOTER */
 footer {

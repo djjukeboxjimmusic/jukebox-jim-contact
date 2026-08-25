@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Gallery – Jukebox Jim Entertainment</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Photo gallery of Jukebox Jim’s DJ events, Music Bingo nights, Name That Tune shows, and community celebrations in New Jersey.">
+
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -34,6 +36,18 @@
             font-size: 16px;
             color: #ccc;
         }
+		
+		.gallery-item {
+			width: 100%;	
+			text-align: center;
+		}
+
+		.gallery-caption {
+			margin-top: 8px;
+			font-size: 16px;
+			color: #ccc;
+			text-shadow: 0 0 6px #0ff;
+		}
     </style>
 </head>
 
@@ -47,9 +61,9 @@
 <nav>
     <a href="index.html">Home</a>
     <a href="events.html">Event Services</a>
-    <a href="gallery.html">Gallery</a>
+    <a href="gallery.html" class="active">Gallery</a>
     <a href="book.html">Booking</a>
-    <a href="jukebox_jim_contact.vcf">Download Contact</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
 <section class="about">
@@ -64,11 +78,14 @@
 
     <!-- GALLERY GRID -->
     <div class="gallery-container">
-
-
-		<img src="images/name-that-tune-kareoke.jpg" alt="Name That Tune w/ Audience Participation">
-		<img src="images/Music-bingo-sheet.jpg" alt="Sample Music Bingo Sheet">
-		<img src="images/America250-party.jpg" alt="America 250 Party DJ Setup">
+		<div class="gallery-item">
+			<img src="images/Music-bingo-sheet.jpg" alt="Sample Music Bingo Sheet">
+		    <p class="gallery-caption">Music Bingo - Sample Card</p>
+		</div>
+		<div class="gallery-item">
+			<img src="images/America250-party.jpg" alt="DJ Jukebox Jim Patriotic Event Setup">
+			<p class="gallery-caption">America 250 Celebration - DJ Setup</p>
+		</div>	
 
 		<p class="gallery-note">More images coming soon...</p>
 
