@@ -60,11 +60,6 @@ h2 {
     margin: auto;
 }
 
-.logo-small {
-    width: 140px;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 0 10px #0ff);
-}
 
 /* SLICK NEON MENU */
 nav {
@@ -97,6 +92,14 @@ nav a.active {
     border-bottom: 2px solid #ff00ff;
     padding-bottom: 4px;
 }
+
+header img.logo-small {
+    width: 140px !important;
+	height: auto;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px #0ff);
+}
+	
 
 /* MOBILE MENU + MOBILE LAYOUT */
 @media (max-width: 700px) {
@@ -163,9 +166,8 @@ nav a.active {
 	.category-header-icon { font-size: 40px; }
     .comparison-table th, .comparison-table td { font-size: 14px; padding: 10px; }
 	
-	.logo-small {
-        width: 90px;
-        margin-bottom: 12px;
+	header img.logo-small {
+        width: 90px !important;
     }
 }
 
