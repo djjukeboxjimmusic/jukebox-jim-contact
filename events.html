@@ -75,11 +75,12 @@
 
         /* Comparison Table */
         .comparison-table {
+		    min-width: 900px;
             max-width: 1100px;
             margin: 50px auto;
             padding: 0 20px;
             border-collapse: collapse;
-            width: 100%;
+            width: max_content;
         }
 
         .comparison-table th,
@@ -113,6 +114,14 @@
             margin-top: 40px;
             text-align: center;
         }
+		
+		.table-scroll {
+			overflow-x: auto;
+			-webkit-overflow-scrolling: touch;
+			width: 100%;
+		}
+
+
     </style>
 </head>
 
@@ -227,6 +236,7 @@
         Service Comparison Chart
     </h2>
 
+	<div class="table-scroll"><div class="table-scroll">
     <table class="comparison-table">
         <tr>
             <th>Feature / Service</th>
@@ -308,6 +318,7 @@
             <td>$$</td>
         </tr>
     </table>
+	</div>
 
     <!-- CALL TO ACTION -->
     <div class="cta">
