@@ -136,6 +136,10 @@ header img.logo-small {
     color: #ff00ff;
     text-shadow: 0 0 10px #ff00ff;
 }
+
+* {
+    box-sizing: border-box;
+}
 	
 
 /* MOBILE MENU + MOBILE LAYOUT */
