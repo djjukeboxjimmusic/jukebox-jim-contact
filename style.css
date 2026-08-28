@@ -112,6 +112,7 @@ header img.logo-small {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+	flex-direction: column;
 }
 
 .brand-logo {
@@ -120,7 +121,7 @@ header img.logo-small {
 }
 
 .brand-text {
-    text-align: left;
+    text-align: center;
 }
 
 .brand-title {
