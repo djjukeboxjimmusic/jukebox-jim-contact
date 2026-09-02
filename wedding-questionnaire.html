@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wedding DJ Questionnaire – Jukebox Jim Entertainment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="jukebox-jim-front-white.png">
+<link rel="stylesheet" href="style.css">
+
+<style>
+    /* 4. Fix alignment of inputs and button by including padding in 100% width */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    .questionnaire-container {
+        max-width: 900px;
+        margin: auto;
+        background: #111;
+        padding: 25px;
+        border-radius: 10px;
+        color: #fff;
+        line-height: 1.5;
+    }
+    
+    .questionnaire-container h2 {
+        color: #0ff;
+        text-shadow: 0 0 10px #0ff;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+    }
+
+    .questionnaire-container h3 {
+        color: #fff;
+        margin-top: 25px;
+    }
+
+    label { font-weight: bold; display:block; margin-top:15px; }
+    
+    /* Target only text-based inputs so checkboxes aren't forced to 100% width */
+    input[type="text"], input[type="date"], input[type="email"], input[type="number"], textarea, select {
+        width: 100%;
+        padding: 12px;
+        margin-top: 6px;
+        border-radius: 6px;
+        border: none;
+        background: #fff;
+    }
+    
+    table { width:100%; margin-top:10px; }
+    th, td { padding:8px; }
+    
+    .button {
+        width: 100%;
+        padding: 15px;
+        margin-top: 30px;
+        background:#0ff;
+        color:#000;
+        font-weight:bold;
+        font-size: 1.1em;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+        transition: background 0.3s ease;
+    }
+    
+    .button:hover {
+        background: #00cccc;
+    }
+
+    /* 1. Highlight section for Date, Bride, Groom */
+    .hero-details {
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid #0ff;
+        margin-bottom: 25px;
+        margin-top: 10px;
+    }
+    
+    .hero-details label {
+        color: #0ff;
+        font-size: 1.1em;
+        margin-top: 10px;
+    }
+    .hero-details label:first-child {
+        margin-top: 0;
+    }
+	
+    /* 2 & 3. Responsive Checkbox Grid Fixes */
+	.checkbox-grid {
+		display: grid;
+		grid-template-columns: 1fr; /* Mobile: 1 column */
+		gap: 15px;
+		margin-top: 15px;
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 8px;
+	}
+    
+    /* Tablet: 2 columns */
+    @media (min-width: 600px) {
+        .checkbox-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    /* Desktop: 3 columns */
+    @media (min-width: 800px) {
+        .checkbox-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+	.checkbox-grid label {
+		display: flex;
+		align-items: center;
+		margin-top: 0;
+        font-weight: normal;
+	}
+
+    input[type="checkbox"] {
+        width: auto;
+        margin: 0 10px 0 0;
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+
+    /* 5. Responsive Grid for Grand Entrance Announcements */
+    .announcement-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Mobile: 1 column */
+        gap: 10px 20px;
+        margin-top: 15px;
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    @media (min-width: 600px) {
+        .announcement-grid {
+            grid-template-columns: repeat(2, 1fr); /* Tablet/Desktop: 2 columns for pairs */
+        }
+    }
+
+    .announcement-grid label {
+        margin-top: 5px;
+        font-size: 0.95em;
+        color: #0ff;
+        font-weight: normal;
+    }
+</style>
+
+<script>
+// Auto-save all fields
+document.addEventListener("DOMContentLoaded", () => {
+    const fields = document.querySelectorAll("input, textarea, select");
+
+    fields.forEach(field => {
+        // Specifically handle checkboxes vs standard inputs for auto-save
+        if (field.type === "checkbox") {
+            const saved = localStorage.getItem(field.name);
+            if (saved === "true") field.checked = true;
+            
+            field.addEventListener("change", () => {
+                localStorage.setItem(field.name, field.checked);
+            });
+        } else {
+            const saved = localStorage.getItem(field.name);
+            if (saved) field.value = saved;
+
+            field.addEventListener("input", () => {
+                localStorage.setItem(field.name, field.value);
+            });
+        }
+    });
+});
+</script>
+
+</head>
+<body>
+
+<header class="brand-header">
+    <div class="brand-bar">
+        <img src="jukebox-jim-front-white.png" class="brand-logo" alt="Logo">
+        <div class="brand-text">
+            <div class="brand-title">Jukebox Jim Entertainment</div>
+            <div class="brand-tagline">Music Bingo • Name That Tune • Trivia • DJ Services</div>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="events.html">Event Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="book.html">Booking</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="page-title">
+    <h1>Wedding DJ Reception Questionnaire</h1>
+    <h2>Presented by DJ Jukebox Jim</h2>
+</section>
+
+<section class="questionnaire-container">
+
+<form action="https://formsubmit.co/DJ.Jukebox.Jim.Music@gmail.com" method="POST">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://djjukeboxjimmusic.github.io/jukebox-jim-contact/thankyou.html">
+
+<h2>Wedding Details</h2>
+
+<!-- Highlighted Section for VIP Info -->
+<div class="hero-details">
+    <label>Wedding Date</label>
+    <input type="date" name="wedding_date">
+
+    <label>Bride’s Name</label>
+    <input type="text" name="bride_name">
+
+    <label>Groom’s Name</label>
+    <input type="text" name="groom_name">
+</div>
+
+<h3>Contact & Ceremony Info</h3>
+
+<label>Coordinator / Contact Name</label>
+<input type="text" name="coordinator_name">
+
+<label>Phone Number</label>
+<input type="text" name="phone">
+
+<label>Email</label>
+<input type="email" name="email">
+
+<label>Ceremony at Reception Venue?</label>
+<select name="ceremony_at_venue">
+    <option>Yes</option>
+    <option>No</option>
+</select>
+
+<label>Ceremony Start Time</label>
+<input type="text" name="ceremony_start">
+
+<label>Officiant Name</label>
+<input type="text" name="officiant">
+
+<label>Processional Song(s)</label>
+<input type="text" name="processional">
+
+<label>Recessional Song</label>
+<input type="text" name="recessional">
+
+<label>Microphone Needs?</label>
+<select name="microphone_needs">
+    <option>Yes</option>
+    <option>No</option>
+</select>
+
+<h2>Reception Details</h2>
+
+<label>Reception Date & Time</label>
+<input type="text" name="reception_datetime">
+
+<label>Location</label>
+<input type="text" name="location">
+
+<label>Number of Guests</label>
+<input type="number" name="guest_count">
+
+<label>Guest Arrival Music?</label>
+<select name="arrival_music">
+    <option>Yes</option>
+    <option>No</option>
+</select>
+
+<label>Arrival Music Style</label>
+<select name="arrival_style">
+    <option>Big Band</option>
+    <option>Easy Listening</option>
+    <option>Soft Rock</option>
+    <option>Motown</option>
+    <option>Smooth Jazz</option>
+    <option>String Quartet</option>
+</select>
+
+<h2>Cocktail Hour</h2>
+
+<label>Cocktail Hour?</label>
+<select name="cocktail_hour">
+    <option>Yes</option>
+    <option>No</option>
+</select>
+
+<label>Start / Finish Time</label>
+<input type="text" name="cocktail_time">
+
+<label>Preferred Music Style</label>
+<select name="cocktail_style">
+    <option>Big Band</option>
+    <option>Easy Listening</option>
+    <option>Soft Rock</option>
+    <option>Motown</option>
+    <option>Smooth Jazz</option>
+    <option>String Quartet</option>
+    <option>Current Top 40</option>
+    <option>R&B</option>
+    <option>Alternative</option>
+    <option>Country</option>
+</select>
+
+<label>Special Requests</label>
+<textarea name="special_requests" rows="3"></textarea>
+
+<h2>Grand Entrance</h2>
+
+<label>Bridal Party Arrival Time</label>
+<input type="text" name="bridal_arrival">
+
+<label>Wedding Party Entrance Song(s)</label>
+<input type="text" name="entrance_songs">
+
+<label>Names to Announce</label>
+<p style="font-size: 0.9em; color: #ccc; margin-top: 5px;"><em>Please list the names of the individuals below. If they are walking into the reception together, enter their names side-by-side. Leave fields blank if not applicable.</em></p>
+
+<div class="announcement-grid">
+    <!-- Grandparents -->
+    <div><label>Grandparents of the Bride</label><input type="text" name="grandparents_bride_1"></div>
+    <div><label>Grandparents of the Groom</label><input type="text" name="grandparents_groom_1"></div>
+    
+    <div><label>Grandparents of the Bride</label><input type="text" name="grandparents_bride_2"></div>
+    <div><label>Grandparents of the Groom</label><input type="text" name="grandparents_groom_2"></div>
+
+    <!-- Parents -->
+    <div><label>Parents of the Bride (Mother)</label><input type="text" name="parents_bride_mother"></div>
+    <div><label>Parents of the Groom (Mother)</label><input type="text" name="parents_groom_mother"></div>
+    
+    <div><label>Parents of the Bride (Father)</label><input type="text" name="parents_bride_father"></div>
+    <div><label>Parents of the Groom (Father)</label><input type="text" name="parents_groom_father"></div>
+
+    <!-- Wedding Party Roles -->
+    <div><label>Flower Girl</label><input type="text" name="flower_girl"></div>
+    <div><label>Ring Bearer</label><input type="text" name="ring_bearer"></div>
+
+    <div><label>Jr. Bridesmaid</label><input type="text" name="jr_bridesmaid"></div>
+    <div><label>Jr. Groomsman</label><input type="text" name="jr_groomsman"></div>
+
+    <!-- Bridesmaids & Groomsmen (Up to 6 pairs) -->
+    <div><label>Bridesmaid</label><input type="text" name="bridesmaid_1"></div>
+    <div><label>Groomsman</label><input type="text" name="groomsman_1"></div>
+
+    <div><label>Bridesmaid</label><input type="text" name="bridesmaid_2"></div>
+    <div><label>Groomsman</label><input type="text" name="groomsman_2"></div>
+
+    <div><label>Bridesmaid</label><input type="text" name="bridesmaid_3"></div>
+    <div><label>Groomsman</label><input type="text" name="groomsman_3"></div>
+
+    <div><label>Bridesmaid</label><input type="text" name="bridesmaid_4"></div>
+    <div><label>Groomsman</label><input type="text" name="groomsman_4"></div>
+
+    <div><label>Bridesmaid</label><input type="text" name="bridesmaid_5"></div>
+    <div><label>Groomsman</label><input type="text" name="groomsman_5"></div>
+
+    <div><label>Bridesmaid</label><input type="text" name="bridesmaid_6"></div>
+    <div><label>Groomsman</label><input type="text" name="groomsman_6"></div>
+
+    <!-- Honor Attendants -->
+    <div><label>Matron or Maid of Honor</label><input type="text" name="maid_of_honor"></div>
+    <div><label>Best Man</label><input type="text" name="best_man"></div>
+</div>
+
+<h2>Special Dances</h2>
+
+<label>Introduction / Grand Entrance Song</label>
+<input type="text" name="grand_entrance_song">
+
+<label>Ladies and Gentlemen, it is my honor to introduce to you: Mr. & Mrs.</label>
+<input type="text" name="mr_mrs">
+
+<label>Bride & Groom First Dance Song</label>
+<input type="text" name="first_dance">
+
+<label>Father/Daughter Dance Song</label>
+<input type="text" name="father_daughter">
+
+<label>Mother/Son Dance Song</label>
+<input type="text" name="mother_son">
+
+<label>Other Songs</label>
+<textarea name="other_songs" rows="3"></textarea>
+
+<h2>Reception Traditions</h2>
+
+<label>Cake Cutting Song</label>
+<input type="text" name="cake_cutting">
+
+<label>Bouquet Toss Song</label>
+<input type="text" name="bouquet_toss">
+
+<label>Garter Toss Song</label>
+<input type="text" name="garter_toss">
+
+<label>Last Song of the Night</label>
+<input type="text" name="last_song">
+
+<h2>Music Preferences</h2>
+
+<label>Music to Avoid During Dinner</label>
+<textarea name="avoid_dinner" rows="3"></textarea>
+
+<label>Volume Preference During Dinner</label>
+<select name="dinner_volume">
+    <option>Very Low</option>
+    <option>Low</option>
+    <option>Normal</option>
+</select>
+
+<h2>Music Genres You Would Like Played (Post Dinner)</h2>
+<p>Please select all genres you and your guests would enjoy.</p>
+
+<div class="checkbox-grid">
+    <label><input type="checkbox" name="genre_oldies"> Oldies</label>
+    <label><input type="checkbox" name="genre_motown"> Motown</label>
+    <label><input type="checkbox" name="genre_rock"> Rock</label>
+    <label><input type="checkbox" name="genre_top40"> Top 40 (Pop)</label>
+    <label><input type="checkbox" name="genre_70s"> 70’s Disco</label>
+    <label><input type="checkbox" name="genre_80s"> 80’s</label>
+    <label><input type="checkbox" name="genre_90s"> 90’s</label>
+    <label><input type="checkbox" name="genre_hiphop"> Hip-Hop</label>
+    <label><input type="checkbox" name="genre_country"> Country</label>
+    <label><input type="checkbox" name="genre_rb"> R&B</label>
+    <label><input type="checkbox" name="genre_techno"> Techno</label>
+    <label><input type="checkbox" name="genre_alternative"> Alternative</label>
+</div>
+
+<label>Other (specify):</label>
+<input type="text" name="genre_other">
+
+
+<h2>Line Dances</h2>
+<p>Select any line dances you would like played.</p>
+
+<div class="checkbox-grid">
+    <label><input type="checkbox" name="ld_cupid_shuffle"> Cupid Shuffle</label>
+    <label><input type="checkbox" name="ld_twist"> The Twist</label>
+    <label><input type="checkbox" name="ld_dougie"> Teach Me How To Dougie</label>
+    <label><input type="checkbox" name="ld_cha_cha_slide"> Cha Cha Slide</label>
+    <label><input type="checkbox" name="ld_hokey_pokey"> Hokey Pokey</label>
+    <label><input type="checkbox" name="ld_gangnam"> Gangnam Style</label>
+    <label><input type="checkbox" name="ld_electric_slide"> Electric Slide</label>
+    <label><input type="checkbox" name="ld_locomotion"> The Locomotion</label>
+    <label><input type="checkbox" name="ld_old_town_road"> Old Town Road</label>
+    <label><input type="checkbox" name="ld_hustle"> The Hustle</label>
+    <label><input type="checkbox" name="ld_chicken_dance"> Chicken Dance</label>
+    <label><input type="checkbox" name="ld_cotton_eyed_joe"> Cotton-Eyed Joe</label>
+    <label><input type="checkbox" name="ld_wobble"> Wobble</label>
+    <label><input type="checkbox" name="ld_train"> The Train</label>
+    <label><input type="checkbox" name="ld_boot_scootin"> Boot Scootin’ Boogie</label>
+    <label><input type="checkbox" name="ld_macarena"> Macarena</label>
+    <label><input type="checkbox" name="ld_turbo_hustle"> Turbo Hustle</label>
+    <label><input type="checkbox" name="ld_watermelon_crawl"> Watermelon Crawl</label>
+    <label><input type="checkbox" name="ld_ymca"> Y.M.C.A.</label>
+    <label><input type="checkbox" name="ld_crank_that"> Crank That (Soulja Boy)</label>
+    <label><input type="checkbox" name="ld_thriller"> Thriller</label>
+</div>
+
+<label>Other:</label>
+<input type="text" name="ld_other">
+
+
+<h2>Must Play Songs</h2>
+<textarea name="must_play" rows="6" placeholder="List songs + priority (1,2,3)"></textarea>
+
+<h2>Do Not Play Songs</h2>
+<textarea name="do_not_play" rows="6"></textarea>
+
+<h2>Additional Notes</h2>
+
+<label>Special Surprises or Timing Cues</label>
+<textarea name="surprises" rows="3"></textarea>
+
+<label>Special Announcements</label>
+<textarea name="announcements" rows="3"></textarea>
+
+<label>Anything Else the DJ Should Know?</label>
+<textarea name="other_notes" rows="3"></textarea>
+
+<button class="button" type="submit">Submit Questionnaire</button>
+
+</form>
+</section>
+
+<footer>
+    <p>© 2026 Jukebox Jim Hayes – DJ & Event Entertainment</p>
+</footer>
+
+</body>
+</html>
