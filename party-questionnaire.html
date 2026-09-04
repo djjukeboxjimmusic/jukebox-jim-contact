@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Party DJ Questionnaire – Jukebox Jim Entertainment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="jukebox-jim-front-white.png">
+<link rel="stylesheet" href="style.css">
+
+<style>
+    /* 4. Fix alignment of inputs and button by including padding in 100% width */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    .questionnaire-container {
+        max-width: 900px;
+        margin: auto;
+        background: #111;
+        padding: 25px;
+        border-radius: 10px;
+        color: #fff;
+        line-height: 1.5;
+    }
+    
+    .questionnaire-container h2 {
+        color: #0ff;
+        text-shadow: 0 0 10px #0ff;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+    }
+
+    .questionnaire-container h3 {
+        color: #fff;
+        margin-top: 25px;
+    }
+
+    label { font-weight: bold; display:block; margin-top:15px; }
+    
+    /* Target only text-based inputs so checkboxes aren't forced to 100% width */
+    input[type="text"], input[type="date"], input[type="email"], input[type="number"], textarea, select {
+        width: 100%;
+        padding: 12px;
+        margin-top: 6px;
+        border-radius: 6px;
+        border: none;
+        background: #fff;
+    }
+    
+    table { width:100%; margin-top:10px; }
+    th, td { padding:8px; }
+    
+    .button {
+        width: 100%;
+        padding: 15px;
+        margin-top: 30px;
+        background:#0ff;
+        color:#000;
+        font-weight:bold;
+        font-size: 1.1em;
+        border:none;
+        border-radius:6px;
+        cursor:pointer;
+        transition: background 0.3s ease;
+    }
+    
+    .button:hover {
+        background: #00cccc;
+    }
+
+    /* 1. Highlight section for Date, Bride, Groom */
+    .hero-details {
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid #0ff;
+        margin-bottom: 25px;
+        margin-top: 10px;
+    }
+    
+    .hero-details label {
+        color: #0ff;
+        font-size: 1.1em;
+        margin-top: 10px;
+    }
+    .hero-details label:first-child {
+        margin-top: 0;
+    }
+	
+    /* 2 & 3. Responsive Checkbox Grid Fixes */
+	.checkbox-grid {
+		display: grid;
+		grid-template-columns: 1fr; /* Mobile: 1 column */
+		gap: 15px;
+		margin-top: 15px;
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 8px;
+	}
+    
+    /* Tablet: 2 columns */
+    @media (min-width: 600px) {
+        .checkbox-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    /* Desktop: 3 columns */
+    @media (min-width: 800px) {
+        .checkbox-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+	.checkbox-grid label {
+		display: flex;
+		align-items: center;
+		margin-top: 0;
+        font-weight: normal;
+	}
+
+    input[type="checkbox"] {
+        width: auto;
+        margin: 0 10px 0 0;
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+
+    /* 5. Responsive Grid for Grand Entrance Announcements */
+    .announcement-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Mobile: 1 column */
+        gap: 10px 20px;
+        margin-top: 15px;
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    @media (min-width: 600px) {
+        .announcement-grid {
+            grid-template-columns: repeat(2, 1fr); /* Tablet/Desktop: 2 columns for pairs */
+        }
+    }
+
+    .announcement-grid label {
+        margin-top: 5px;
+        font-size: 0.95em;
+        color: #0ff;
+        font-weight: normal;
+    }
+</style>
+
+<script>
+// Auto-save all fields
+document.addEventListener("DOMContentLoaded", () => {
+    const fields = document.querySelectorAll("input, textarea, select");
+
+    fields.forEach(field => {
+        // Specifically handle checkboxes vs standard inputs for auto-save
+        if (field.type === "checkbox") {
+            const saved = localStorage.getItem(field.name);
+            if (saved === "true") field.checked = true;
+            
+            field.addEventListener("change", () => {
+                localStorage.setItem(field.name, field.checked);
+            });
+        } else {
+            const saved = localStorage.getItem(field.name);
+            if (saved) field.value = saved;
+
+            field.addEventListener("input", () => {
+                localStorage.setItem(field.name, field.value);
+            });
+        }
+    });
+});
+</script>
+
+</head>
+<body>
+
+<header class="brand-header">
+    <div class="brand-bar">
+        <img src="jukebox-jim-front-white.png" class="brand-logo" alt="Logo">
+        <div class="brand-text">
+            <div class="brand-title">Jukebox Jim Entertainment</div>
+            <div class="brand-tagline">Music Bingo • Name That Tune • Trivia • DJ Services</div>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="events.html">Event Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="book.html">Booking</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="page-title">
+    <h1>Party DJ Questionnaire</h1>
+    <h2>Presented by DJ Jukebox Jim</h2>
+</section>
+
+<section class="questionnaire-container">
+
+<form action="https://formsubmit.co/DJ.Jukebox.Jim.Music@gmail.com" method="POST">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://djjukeboxjimmusic.github.io/jukebox-jim-contact/party-thankyou.html">
+
+<h2>Party Details</h2>
+
+<!-- Highlighted Section for VIP Info -->
+<div class="hero-details">
+	<label>Coordinator / Contact Name</label>
+	<input type="text" name="coordinator_name">
+
+	<label>Phone Number</label>
+	<input type="text" name="phone">
+
+	<label>Email</label>
+	<input type="email" name="email">
+</div>
+
+
+<h2>Party Details</h2>
+
+<label>Party Date</label>
+<input type="text" name="party_date">
+
+<label>Start / Finish Time</label>
+<input type="text" name="party_time">
+
+<label>Location</label>
+<input type="text" name="location">
+
+<label>Number of Guests</label>
+<input type="number" name="guest_count">
+
+
+<h2>Music Preferences</h2>
+
+<label>Must Play Songs</label>
+<textarea name="must_play" rows="6" placeholder="List songs + priority (1,2,3)"></textarea>
+
+<label>Do Not Play Songs</label>
+<textarea name="do_not_play" rows="6"></textarea>
+
+<h2>Additional Notes</h2>
+
+<label>Special Surprises or Timing Cues</label>
+<textarea name="surprises" rows="3"></textarea>
+
+<label>Special Announcements</label>
+<textarea name="announcements" rows="3"></textarea>
+
+<label>Anything Else the DJ Should Know?</label>
+<textarea name="other_notes" rows="3"></textarea>
+
+<button class="button" type="submit">Submit Questionnaire</button>
+
+</form>
+</section>
+
+<footer>
+    <p>© 2026 Jukebox Jim Hayes – DJ & Event Entertainment</p>
+</footer>
+
+</body>
+</html>
