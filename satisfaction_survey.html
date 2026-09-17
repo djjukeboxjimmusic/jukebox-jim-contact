@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Client Satisfaction Survey – Jukebox Jim Entertainment</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="jukebox-jim-front-white.png">
+<link rel="stylesheet" href="style.css">
+
+<style>
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    .questionnaire-container {
+        max-width: 900px;
+        margin: auto;
+        background: #111;
+        padding: 25px;
+        border-radius: 10px;
+        color: #fff;
+        line-height: 1.5;
+        text-align: left;
+    }
+    
+    .questionnaire-container h2 {
+        color: #0ff;
+        text-shadow: 0 0 10px #0ff;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+    }
+
+    .questionnaire-container h3 {
+        color: #fff;
+        margin-top: 25px;
+    }
+
+    label.section-label { 
+        font-weight: bold; 
+        display: block; 
+        margin-top: 25px; 
+        font-size: 1.1em;
+    }
+    
+    input[type="text"], input[type="date"], input[type="email"], input[type="number"], textarea, select {
+        width: 100%;
+        padding: 12px;
+        margin-top: 6px;
+        border-radius: 6px;
+        border: none;
+        background: #fff;
+        color: #000;
+        font-family: inherit;
+    }
+    
+    .button {
+        width: 100%;
+        padding: 15px;
+        margin-top: 40px;
+        background: #0ff;
+        color: #000;
+        font-weight: bold;
+        font-size: 1.1em;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .button:hover {
+        background: #ff00ff;
+        color: #fff;
+        box-shadow: 0 0 14px #ff00ff;
+    }
+
+    .hero-details {
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 5px solid #0ff;
+        margin-bottom: 25px;
+        margin-top: 10px;
+    }
+    
+    .hero-details label {
+        color: #0ff;
+        font-size: 1.1em;
+        margin-top: 10px;
+        display: block;
+        font-weight: bold;
+    }
+    .hero-details label:first-child {
+        margin-top: 0;
+    }
+
+    /* --- ENHANCED RATING SCALE STYLES --- */
+    .scale-group {
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    .scale-options {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 10px;
+        flex-wrap: wrap; /* Allows wrapping on small screens */
+    }
+
+    .custom-radio {
+        flex: 1;
+        min-width: 100px;
+        cursor: pointer;
+    }
+
+    /* Hide the default radio bullet */
+    .custom-radio input[type="radio"] {
+        display: none;
+    }
+
+    /* The stylized card */
+    .custom-radio .radio-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 10px;
+        background: #2a2a2a;
+        border: 2px solid #444;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        height: 100%;
+        text-align: center;
+        font-size: 1.4em;
+        font-weight: bold;
+        color: #ddd;
+    }
+
+    /* The descriptive text under the number */
+    .custom-radio .label-desc {
+        font-size: 0.55em;
+        font-weight: normal;
+        margin-top: 8px;
+        color: #aaa;
+        min-height: 2.8em; /* Keeps heights uniform even if blank */
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Hover effect */
+    .custom-radio:hover .radio-text {
+        border-color: #0ff;
+        background: #333;
+    }
+
+    /* Selected state */
+    .custom-radio input[type="radio"]:checked + .radio-text {
+        background: #0ff;
+        color: #000;
+        border-color: #0ff;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+    /* Change description text color when selected */
+    .custom-radio input[type="radio"]:checked + .radio-text .label-desc {
+        color: #222;
+        font-weight: bold;
+    }
+
+    /* Mobile adjustments for the scales */
+    @media (max-width: 600px) {
+        .custom-radio {
+            min-width: 100%; /* Stack vertically on phones */
+        }
+        .custom-radio .label-desc {
+            min-height: auto;
+        }
+        .custom-radio .radio-text {
+            flex-direction: row;
+            justify-content: flex-start;
+            padding: 15px 20px;
+            gap: 15px;
+        }
+        .custom-radio .label-desc {
+            margin-top: 0;
+            font-size: 0.65em;
+        }
+    }
+</style>
+
+<script>
+// Auto-save all fields
+document.addEventListener("DOMContentLoaded", () => {
+    const fields = document.querySelectorAll("input, textarea, select");
+
+    fields.forEach(field => {
+        if (field.type === "radio") {
+            const saved = localStorage.getItem(field.name);
+            if (saved === field.value) field.checked = true;
+            
+            field.addEventListener("change", () => {
+                if (field.checked) {
+                    localStorage.setItem(field.name, field.value);
+                }
+            });
+        } else if (field.type === "checkbox") {
+            const saved = localStorage.getItem(field.name);
+            if (saved === "true") field.checked = true;
+            
+            field.addEventListener("change", () => {
+                localStorage.setItem(field.name, field.checked);
+            });
+        } else {
+            const saved = localStorage.getItem(field.name);
+            if (saved) field.value = saved;
+
+            field.addEventListener("input", () => {
+                localStorage.setItem(field.name, field.value);
+            });
+        }
+    });
+});
+</script>
+
+</head>
+<body>
+
+<header class="brand-header">
+    <div class="brand-bar">
+        <img src="jukebox-jim-front-white.png" class="brand-logo" alt="Jukebox Jim Logo">
+        <div class="brand-text">
+            <div class="brand-title">Jukebox Jim Entertainment</div>
+            <div class="brand-tagline">Music Bingo • Name That Tune • Trivia • DJ Services</div>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="events.html">Event Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="book.html">Booking</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="page-title">
+    <h1>DJ Services Delivery Satisfaction Survey</h1>
+    <h2>Presented by DJ Jukebox Jim</h2>
+</section>
+
+<section class="questionnaire-container">
+
+<form action="https://formsubmit.co/DJ.Jukebox.Jim.Music@gmail.com" method="POST">
+
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://djjukeboxjimmusic.github.io/jukebox-jim-contact/survey-thankyou.html">
+
+<h2>Client & Event Information</h2>
+
+<div class="hero-details">
+    <label>Client Name</label>
+    <input type="text" name="client_name" required>
+
+    <label>Event Date</label>
+    <input type="date" name="event_date" required>
+
+    <label>Email Address</label>
+    <input type="email" name="client_email" required>
+</div>
+
+<h2>Overall Experience</h2>
+
+<label class="section-label">1. Overall, how satisfied are you with the service delivered?</label>
+<div class="scale-group">
+    <div class="scale-options">
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="1" required>
+            <span class="radio-text">1<span class="label-desc">Not at all satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="2">
+            <span class="radio-text">2<span class="label-desc">Slightly satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="3">
+            <span class="radio-text">3<span class="label-desc">Somewhat satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="4">
+            <span class="radio-text">4<span class="label-desc">Very satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="5">
+            <span class="radio-text">5<span class="label-desc">Completely satisfied</span></span>
+        </label>
+    </div>
+</div>
+
+<label class="section-label">2. How likely are you to recommend our service to others?</label>
+<div class="scale-group">
+    <div class="scale-options">
+        <label class="custom-radio">
+            <input type="radio" name="recommend_likelihood" value="1" required>
+            <span class="radio-text">1<span class="label-desc">Not at all likely</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="recommend_likelihood" value="2">
+            <span class="radio-text">2<span class="label-desc">Slightly likely</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="recommend_likelihood" value="3">
+            <span class="radio-text">3<span class="label-desc">Neutral</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="recommend_likelihood" value="4">
+            <span class="radio-text">4<span class="label-desc">Very likely</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="recommend_likelihood" value="5">
+            <span class="radio-text">5<span class="label-desc">Extremely likely</span></span>
+        </label>
+    </div>
+</div>
+
+<h2>Communication & Professionalism</h2>
+
+<label class="section-label">3. Was communication leading up to the event clear and timely?</label>
+<div class="scale-group">
+    <div class="scale-options">
+        <label class="custom-radio">
+            <input type="radio" name="communication_timely" value="1" required>
+            <span class="radio-text">1<span class="label-desc">Strongly Disagree</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="communication_timely" value="2">
+            <span class="radio-text">2<span class="label-desc">Disagree</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="communication_timely" value="3">
+            <span class="radio-text">3<span class="label-desc">Neutral</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="communication_timely" value="4">
+            <span class="radio-text">4<span class="label-desc">Agree</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="communication_timely" value="5">
+            <span class="radio-text">5<span class="label-desc">Strongly Agree</span></span>
+        </label>
+    </div>
+</div>
+
+<label class="section-label">4. How would you rate the professionalism and communication throughout the engagement?</label>
+<div class="scale-group">
+    <div class="scale-options">
+        <label class="custom-radio">
+            <input type="radio" name="professionalism_rating" value="1" required>
+            <span class="radio-text">1<span class="label-desc">Poor</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="professionalism_rating" value="2">
+            <span class="radio-text">2<span class="label-desc">Fair</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="professionalism_rating" value="3">
+            <span class="radio-text">3<span class="label-desc">Good</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="professionalism_rating" value="4">
+            <span class="radio-text">4<span class="label-desc">Very Good</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="professionalism_rating" value="5">
+            <span class="radio-text">5<span class="label-desc">Excellent</span></span>
+        </label>
+    </div>
+</div>
+
+<label class="section-label">5. Were issues or changes handled effectively during the engagement?</label>
+<div class="scale-group">
+    <div class="scale-options">
+        <label class="custom-radio">
+            <input type="radio" name="issues_handled" value="1" required>
+            <span class="radio-text">1<span class="label-desc">Poor</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="issues_handled" value="2">
+            <span class="radio-text">2<span class="label-desc">Fair</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="issues_handled" value="3">
+            <span class="radio-text">3<span class="label-desc">Good</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="issues_handled" value="4">
+            <span class="radio-text">4<span class="label-desc">Very Good</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="issues_handled" value="5">
+            <span class="radio-text">5<span class="label-desc">Excellent</span></span>
+        </label>
+    </div>
+</div>
+
+<h2>Event Execution & Performance</h2>
+
+<label class="section-label">6. How well did the DJ contribute to the event and atmosphere of your event?</label>
+<div class="scale-group">
+    <div class="scale-options">
+        <label class="custom-radio">
+            <input type="radio" name="atmosphere_contribution" value="1" required>
+            <span class="radio-text">1<span class="label-desc">Poor</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="atmosphere_contribution" value="2">
+            <span class="radio-text">2<span class="label-desc">Fair</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="atmosphere_contribution" value="3">
+            <span class="radio-text">3<span class="label-desc">Good</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="atmosphere_contribution" value="4">
+            <span class="radio-text">4<span class="label-desc">Very Good</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="atmosphere_contribution" value="5">
+            <span class="radio-text">5<span class="label-desc">Excellent</span></span>
+        </label>
+    </div>
+</div>
+
+<label class="section-label">7. How satisfied were you with the music selection throughout the event?</label>
+<div class="scale-group">
+    <div class="scale-options">
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="1" required>
+            <span class="radio-text">1<span class="label-desc">Not at all satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="2">
+            <span class="radio-text">2<span class="label-desc">Slightly satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="3">
+            <span class="radio-text">3<span class="label-desc">Somewhat satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="4">
+            <span class="radio-text">4<span class="label-desc">Very satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="5">
+            <span class="radio-text">5<span class="label-desc">Completely satisfied</span></span>
+        </label>
+    </div>
+</div>
+
+<label class="section-label">8. Were special moments (e.g., first dance, announcements, etc.) executed smoothly and on-time?</label>
+<div class="scale-group">
+    <div class="scale-options">
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="1" required>
+            <span class="radio-text">1<span class="label-desc">Not at all satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="2">
+            <span class="radio-text">2<span class="label-desc">Slightly satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="3">
+            <span class="radio-text">3<span class="label-desc">Somewhat satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="4">
+            <span class="radio-text">4<span class="label-desc">Very satisfied</span></span>
+        </label>
+        <label class="custom-radio">
+            <input type="radio" name="overall_satisfaction" value="5">
+            <span class="radio-text">5<span class="label-desc">Completely satisfied</span></span>
+        </label>
+    </div>
+</div>
+
+<h2>Feedback & Comments</h2>
+
+<label class="section-label">9. What areas could we improve for future engagements?</label>
+<textarea name="areas_to_improve" rows="4" placeholder="Share your suggestions for improvement..."></textarea>
+
+<label class="section-label">10. Any other comments?</label>
+<textarea name="other_comments" rows="4" placeholder="Let us know anything else you'd like to share..."></textarea>
+
+<button class="button" type="submit">Submit Survey</button>
+
+</form>
+</section>
+
+<footer>
+    <p>© 2026 Jukebox Jim Hayes – DJ & Event Entertainment</p>
+</footer>
+
+</body>
+</html>
