@@ -140,6 +140,43 @@ header img.logo-small {
 * {
     box-sizing: border-box;
 }
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.event-box {
+  background: #111;
+  border-radius: 10px;
+  box-shadow: 0 0 14px #ff00ff;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.event-box:hover {
+  box-shadow: 0 0 18px #0ff;
+  transform: scale(1.03);
+}
+
+.event-box h2 {
+  color: #0ff;
+  text-shadow: 0 0 10px #0ff;
+  font-size: 24px;
+}
+
+.event-box p {
+  color: #fff;
+  margin: 6px 0;
+}
+
+.next-show {
+  border: 2px solid #ff00ff;
+  box-shadow: 0 0 20px #ff00ff;
+}
+
 	
 
 /* MOBILE MENU + MOBILE LAYOUT */
