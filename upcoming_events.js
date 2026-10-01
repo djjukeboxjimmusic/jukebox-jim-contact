@@ -6,7 +6,7 @@ fetch(sheetURL)
     const rows = csv.split("\n").slice(1); // skip header
     const grid = document.getElementById("event-grid");
 
-    rows.forEach(row => {
+    rows.forEach((row, index) => {
       const [date, time, location, event] = row.split(",");
 
       if (!date) return;
