@@ -13,6 +13,7 @@ fetch(sheetURL)
 
       const box = document.createElement("div");
       box.className = "event-box";
+	  if (index === 0) box.classList.add("next-show");
 
       box.innerHTML = `
         <h2>${date}</h2>

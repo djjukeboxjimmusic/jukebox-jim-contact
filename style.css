@@ -142,8 +142,9 @@ header img.logo-small {
 }
 
 .event-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   padding: 30px;
 }
@@ -153,6 +154,8 @@ header img.logo-small {
   border-radius: 10px;
   box-shadow: 0 0 14px #ff00ff;
   padding: 20px;
+  width: 280px; /* controls box width */
+  text-align: center;
   transition: 0.3s;
 }
 
@@ -171,7 +174,6 @@ header img.logo-small {
   color: #fff;
   margin: 6px 0;
 }
-
 .next-show {
   border: 2px solid #ff00ff;
   box-shadow: 0 0 20px #ff00ff;
