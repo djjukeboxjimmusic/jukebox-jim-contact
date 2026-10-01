@@ -1,4 +1,4 @@
-const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSUAc0QW42C_bZOU0Xtk5-YL-CBa6Mp6CBFZ6o2PGUHA22gMWUpXrQ0tNDONwDvvEolXiMdz0a3VdMP/pub?output=csv";
+const sheetURL = "https://docs.google.com/spreadsheets/d/1ujqNGoKToezhNf_b56zG4A7tFDQCecGoM986e4cnnWE/edit?usp=sharing";
 
 fetch(sheetURL)
   .then(response => response.text())
