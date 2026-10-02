@@ -179,6 +179,12 @@ header img.logo-small {
   box-shadow: 0 0 20px #ff00ff;
 }
 
+.no-events {
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  opacity: 0.8;
+}
 	
 
 /* MOBILE MENU + MOBILE LAYOUT */

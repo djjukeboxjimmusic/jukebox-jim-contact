@@ -56,6 +56,18 @@ fetch(sheetURL)
 
     // Sort future events chronologically
     futureEvents.sort((a, b) => a.eventDate - b.eventDate);
+	
+	// ⭐ FALLBACK: No upcoming events
+    if (futureEvents.length === 0) {
+      const msg = document.createElement("div");
+      msg.className = "no-events";
+      msg.innerHTML = `
+        <p><strong>No upcoming events.</strong></p>
+      `;
+      grid.appendChild(msg);
+      return;
+    }
+	
 
     // Render
     futureEvents.forEach((ev, index) => {
