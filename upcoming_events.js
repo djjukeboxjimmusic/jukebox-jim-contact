@@ -22,28 +22,30 @@ fetch(sheetURL)
 	const today = new Date();
     today.setHours(0, 0, 0, 0); // normalize
 	
-    rows.forEach((row, index) => {
-      const [date, time, location, event] = row.split(",");
+	let futureEvents = [];
 
-      if (!date) return;
-	  
-	   // Convert sheet date (MM/DD/YYYY) → JS Date
-      const eventDate = parseSheetDate(date);
+	rows.forEach(row => {
+	  const [date, time, location, event] = row.split(",");
 
-      // Skip past dates
-      if (isNaN(eventDate.getTime()) || eventDate < today) return;
+	  const eventDate = parseSheetDate(date);
+	  if (isNaN(eventDate.getTime()) || eventDate < today) return;
 
-      const box = document.createElement("div");
-      box.className = "event-box";
+	  futureEvents.push({ date, time, location, event });
+	});
+
+	// Now render
+	futureEvents.forEach((ev, index) => {
+	  const box = document.createElement("div");
+	  box.className = "event-box";
+
 	  if (index === 0) box.classList.add("next-show");
 
-      box.innerHTML = `
-        <h2>${date}</h2>
-        <p><strong>${event}</strong></p>
-        <p>${location}</p>
-        <p>${time}</p>
-      `;
+	  box.innerHTML = `
+		<h2>${ev.date}</h2>
+		<p><strong>${ev.event}</strong></p>
+		<p>${ev.location}</p>
+		<p>${ev.time}</p>
+	  `;
 
-      grid.appendChild(box);
-    });
-  });
+	  grid.appendChild(box);
+	});
