@@ -6,10 +6,19 @@ fetch(sheetURL)
     const rows = csv.split("\n").slice(1); // skip header
     const grid = document.getElementById("event-grid");
 
+	const today = new Date();
+    today.setHours(0, 0, 0, 0); // normalize
+	
     rows.forEach((row, index) => {
       const [date, time, location, event] = row.split(",");
 
       if (!date) return;
+	  
+	   // Convert sheet date (MM/DD/YYYY) → JS Date
+      const eventDate = new Date(date);
+
+      // Skip past dates
+      if (isNaN(eventDate) || eventDate < today) return;
 
       const box = document.createElement("div");
       box.className = "event-box";
