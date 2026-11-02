@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery – Jukebox Jim Entertainment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Photo gallery of Jukebox Jim’s DJ events, Music Bingo nights, Name That Tune shows, and community celebrations in New Jersey.">
+	<link rel="icon" type="image/png" href="jukebox-jim-front-white.png">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* GALLERY GRID */
+        .gallery-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .gallery-container img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 12px #0ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 18px #ff00ff;
+        }
+
+        .gallery-note {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #ccc;
+        }
+		
+		.gallery-item {
+			width: 100%;	
+			text-align: center;
+		}
+
+		.gallery-caption {
+			margin-top: 8px;
+			font-size: 16px;
+			color: #ccc;
+			text-shadow: 0 0 6px #0ff;
+		}
+    </style>
+</head>
+
+<body>
+
+<header class="brand-header">
+    <div class="brand-bar">
+        <img src="jukebox-jim-front-white.png" alt="Jukebox Jim Logo" class="brand-logo">
+        <div class="brand-text">
+            <div class="brand-title">Jukebox Jim Entertainment</div>
+            <div class="brand-tagline">Music Bingo • Name That Tune • Trivia • DJ Services</div>
+        </div>
+    </div>
+</header>
+
+
+<nav>
+    <a href="index.html">Home</a>
+	<a href="upcoming_events.html">Upcoming Events</a>
+    <a href="events.html">Event Services</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="book.html">Booking</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<section class="page-title">
+    <h1>Gallery</h1>
+    <h2>Photos from Events, Shows & Community Nights</h2>
+</section>
+
+
+<section class="about">
+    <h2 style="color:#0ff; text-shadow:0 0 10px #0ff; margin-bottom:10px;">
+        Moments That Make the Music
+    </h2>
+
+    <p style="line-height:1.6; font-size:18px; margin-bottom:25px;">
+        Here are highlights from weddings, lodge events, music bingo nights, Name That Tune,
+        and community celebrations. Check back often — new photos are added regularly!
+    </p>
+
+    <!-- GALLERY GRID -->
+    <div class="gallery-container">
+		<div class="gallery-item">
+			<img src="images/Music-bingo-sheet.jpg" alt="Sample Music Bingo Sheet" loading="lazy">
+		    <p class="gallery-caption">Music Bingo - Sample Card</p>
+		</div>
+		<div class="gallery-item">
+			<img src="images/America250-party.jpg" alt="DJ Jukebox Jim Patriotic Event Setup" loading="lazy">
+			<p class="gallery-caption">America 250 Celebration - DJ Setup</p>
+		</div>	
+		<div class="gallery-item">
+			<img src="images/VDJ.jpg" alt="VirtualDJ Professional Software" loading="lazy">
+			<p class="gallery-caption">We only use Professional DJ Software</p>
+		</div>	
+		<div class="gallery-item">
+			<img src="images/Trivia Night w Door Prizes.jpg" alt="Trivia Night with Door Prizes" loading="lazy">
+			<p class="gallery-caption">Trivia Night and Door Prizes</p>
+		</div>	
+		<div class="gallery-item">
+			<img src="images/Bingo4.jpg" alt="It's Bingo Night with Winning Player Prizes" loading="lazy">
+			<p class="gallery-caption">It's Bingo Night and Winner Prizes</p>
+		</div>	
+		<div class="gallery-item">
+			<img src="images/Bingo3.jpg" alt="We've had up to 160 players per round" loading="lazy">
+			<p class="gallery-caption">Wow! We've had up to 160 individual players per round</p>
+		</div>	
+		<div class="gallery-item">
+			<img src="images/Bingo Night at Elks1896.png" alt="Bingo Night at Elks1896" loading="lazy">
+			<p class="gallery-caption">Bingo Night at Elks 1896</p>
+		</div>	
+		<div class="gallery-item">
+			<img src="images/DJing_at_Elks_1.jpg" alt="DJing at the Elks (Eagles pre-Game)" loading="lazy">
+			<p class="gallery-caption">DJing at the Elks (Eagles pre-Game)</p>
+		</div>	
+		<div class="gallery-item">
+			<img src="images/DJing_house_party_setup.jpg" alt="House Party Booth Setup" loading="lazy">
+			<p class="gallery-caption">House Party DJ Booth Setup</p>
+		</div>	
+		<div class="gallery-item">
+			<img src="images/DJing_house_party2.jpg" alt="Back Yard House Party" loading="lazy">
+			<p class="gallery-caption">Back Yard House Party</p>
+		</div>	
+		<div class="gallery-item">
+			<img src="images/DJ_booth_night_party2.jpg" alt="My DJ Booth Lit Up at Night" loading="lazy">
+			<p class="gallery-caption">My DJ Booth Lit Up at Night</p>
+		</div>	
+		<div class="gallery-item">
+			<img src="images/DJ_booth_night_party3.jpg" alt="My DJ Booth Lit Up at Night" loading="lazy">
+			<p class="gallery-caption">My DJ Booth Lit Up at Night</p>
+		</div>	
+
+	</div>
+	
+	<p class="gallery-note">More images coming soon...</p>
+	
+</section>
+
+<footer>
+	<p>© 2026 Jukebox Jim Hayes – DJ & Event Entertainment</p>
+</footer>
+
+</body>
+</html>
