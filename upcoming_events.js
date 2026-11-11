@@ -2,6 +2,23 @@ const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSUAc0QW42C_bZ
 
 
 /**
+ * Returns the appropriate icon path based on event type name.
+ */
+function getEventIcon(eventType) {
+  const name = (eventType || "").toLowerCase();
+  if (name.includes("tune") || name.includes("name that")) {
+    return "icon-tune.png";
+  } else if (name.includes("bingo")) {
+    return "icon-bingo.png";
+  } else if (name.includes("trivia") || name.includes("quizzo")) {
+    return "icon-trivia.png";
+  } else if (name.includes("dj") || name.includes("party") || name.includes("dance")) {
+    return "icon-dj.png";
+  }
+  return "icon-dj.png"; // Default fallback
+}
+
+/**
  * Parse Google Sheets formatted dates like:
  * "Thu Oct 1"
  * "Tue Oct 6"
@@ -75,14 +92,18 @@ fetch(sheetURL)
       box.className = "event-box";
 
       if (index === 0) box.classList.add("next-show");
+	  
+	  const iconPath = getEventIcon(ev.event);
 
       box.innerHTML = `
+		<div class="event-icon-container">
+          <img src="${iconPath}" alt="${ev.event} Icon" class="event-card-icon">
+        </div>
         <h2>${ev.date}</h2>
-        <p><strong>${ev.event}</strong></p>
-        <p>${ev.location}</p>
-        <p>${ev.time}</p>
+        <p class="event-title"><strong>${ev.event}</strong></p>
+        <p class="event-location">${ev.location}</p>
+        <p class="event-time">${ev.time}</p>
       `;
-
       grid.appendChild(box);
     });
   });
